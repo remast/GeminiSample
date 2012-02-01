@@ -36,7 +36,7 @@ import javax.persistence.TemporalType;
 public class Account {
 
     @Id @GeneratedValue
-    int id;
+    Integer id;
     
     double balance;
     

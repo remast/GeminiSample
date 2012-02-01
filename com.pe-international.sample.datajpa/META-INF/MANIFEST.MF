@@ -5,13 +5,30 @@ Bundle-SymbolicName: com.pe-international.sample.datajpa
 Bundle-Version: 1.0.0.qualifier
 Bundle-Vendor: PE-INTERNATIONAL
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
-Import-Package: org.springframework.data.jpa.repository;version="1.0.2.RELEASE",
+Import-Package: javax.persistence;version="2.0.3",
+ javax.persistence.criteria;version="2.0.3",
+ javax.persistence.metamodel;version="2.0.3",
+ javax.persistence.spi;version="2.0.3",
+ model.account,
+ org.aopalliance.aop;version="1.0.0",
+ org.eclipse.gemini.blueprint;version="1.0.0.RELEASE",
+ org.eclipse.gemini.blueprint.context;version="1.0.0.RELEASE",
+ org.osgi.framework;version="1.6.0",
+ org.springframework.aop;version="3.1.0.RELEASE",
+ org.springframework.aop.framework;version="3.1.0.RELEASE",
+ org.springframework.beans.factory.annotation;version="3.1.0.RELEASE",
+ org.springframework.dao;version="3.1.0.RELEASE",
+ org.springframework.dao.support;version="3.1.0.RELEASE",
+ org.springframework.data.domain;version="1.2.0.RELEASE",
+ org.springframework.data.jpa.repository;version="1.1.0.M1",
+ org.springframework.data.jpa.repository.config;version="1.1.0.M1",
+ org.springframework.data.jpa.repository.query;version="1.1.0.M1",
+ org.springframework.data.jpa.repository.support;version="1.1.0.M1",
+ org.springframework.data.jpa.repository.utils;version="1.1.0.M1",
+ org.springframework.data.jpa.support;version="1.1.0.M1",
  org.springframework.data.repository;version="1.2.0.RELEASE",
- org.springframework.data.repository.cdi;version="1.2.0.RELEASE",
- org.springframework.data.repository.config;version="1.2.0.RELEASE",
  org.springframework.data.repository.core;version="1.2.0.RELEASE",
  org.springframework.data.repository.core.support;version="1.2.0.RELEASE",
- org.springframework.data.repository.query;version="1.2.0.RELEASE",
- org.springframework.data.repository.query.parser;version="1.2.0.RELEASE",
- org.springframework.data.repository.support;version="1.2.0.RELEASE",
- org.springframework.data.repository.util;version="1.2.0.RELEASE"
+ org.springframework.orm.jpa;version="3.1.0.RELEASE",
+ org.springframework.orm.jpa.support;version="3.1.0.RELEASE"
+Export-Package: com.pe_international.sample.datajpa

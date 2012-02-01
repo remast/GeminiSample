@@ -2,15 +2,36 @@ package com.pe_international.sample.console;
 
 import java.util.Collection;
 
+import model.account.Account;
 import model.account.Customer;
 
 import org.eclipse.osgi.framework.console.CommandInterpreter;
 import org.eclipse.osgi.framework.console.CommandProvider;
 
+import com.pe_international.sample.datajpa.AccountRepository;
 import com.pe_international.sample.service.CustomerDAO;
 
 
 public class SampleCommandProvider implements CommandProvider {
+	
+	private AccountRepository accountRepository;
+
+	public AccountRepository getAccountRepository() {
+		return accountRepository;
+	}
+
+	public void setAccountRepository(AccountRepository accountRepository) {
+		this.accountRepository = accountRepository;
+	}
+	
+	public void _listAccounts(final CommandInterpreter interpreter) {
+		System.out.println("------- Accounts: -------");
+		Collection<Account> accounts =  accountRepository.findAll();
+		for (Account account : accounts) {
+			System.out.println(account);
+		}
+		System.out.println("-------------------------");
+	}
 
 	public void _listCustomers(final CommandInterpreter interpreter) {
 		System.out.println("------- Customers: -------");

@@ -9,10 +9,14 @@
 
 <!-- 
  -->
+ 
+   <reference id="accountRepository" interface="com.pe_international.sample.datajpa.AccountRepository"/>
+ 
 	<reference id="customerDAO" interface="com.pe_international.sample.service.CustomerDAO" />
 
 	<bean id="sampleCommandProvider" class="com.pe_international.sample.console.SampleCommandProvider">
 		<property name="customerDAO" ref="customerDAO" />
+		<property name="accountRepository" ref="accountRepository" />
 	</bean>
 	
   <service ref="sampleCommandProvider" auto-export="interfaces" />
