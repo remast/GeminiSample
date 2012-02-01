@@ -22,17 +22,6 @@ public class CustomerDAOImpl implements CustomerDAO {
 		this.entityManager = entityManager;
 	}
 
-	//	private JpaTransactionManager transactionManager;
-	//
-	//	public JpaTransactionManager getTransactionManager() {
-	//		return transactionManager;
-	//	}
-	//
-	//	public void setTransactionManager(JpaTransactionManager transactionManager) {
-	//		this.transactionManager = transactionManager;
-	//	}
-
-
 	@Transactional
 	public Collection<Customer> list() {
 		TypedQuery<Customer> q = entityManager.createQuery("SELECT a FROM Customer a", Customer.class);
