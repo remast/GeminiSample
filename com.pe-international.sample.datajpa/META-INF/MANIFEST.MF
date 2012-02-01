@@ -1,0 +1,17 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Datajpa
+Bundle-SymbolicName: com.pe-international.sample.datajpa
+Bundle-Version: 1.0.0.qualifier
+Bundle-Vendor: PE-INTERNATIONAL
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Import-Package: org.springframework.data.jpa.repository;version="1.0.2.RELEASE",
+ org.springframework.data.repository;version="1.2.0.RELEASE",
+ org.springframework.data.repository.cdi;version="1.2.0.RELEASE",
+ org.springframework.data.repository.config;version="1.2.0.RELEASE",
+ org.springframework.data.repository.core;version="1.2.0.RELEASE",
+ org.springframework.data.repository.core.support;version="1.2.0.RELEASE",
+ org.springframework.data.repository.query;version="1.2.0.RELEASE",
+ org.springframework.data.repository.query.parser;version="1.2.0.RELEASE",
+ org.springframework.data.repository.support;version="1.2.0.RELEASE",
+ org.springframework.data.repository.util;version="1.2.0.RELEASE"
