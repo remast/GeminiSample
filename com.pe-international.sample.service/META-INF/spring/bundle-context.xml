@@ -10,9 +10,7 @@
 
   <reference id="entityManagerFactory" interface="javax.persistence.EntityManagerFactory"/>
  
-  <bean id="helloWorld" class="com.pe_international.sample.service.HelloWorldImpl">
-  <property name="entityManagerFactory" ref="entityManagerFactory"/>
-  </bean>
+  <bean id="helloWorld" class="com.pe_international.sample.service.HelloWorldImpl"/>
   
   <bean class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor" />
 
@@ -25,22 +23,6 @@
   <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
     <property name="entityManagerFactory" ref="entityManagerFactory"/>
   </bean>
-
-<!-- 
-  <property name="entityManagerFactory" ref="entityManagerFactory"/>
-  <service ref="transactionManager" auto-export="interfaces"/>
-
-  <reference id="entityManagerFactory" interface="javax.persistence.EntityManagerFactory"/>
-  <reference id="dataSource" interface="javax.sql.DataSource"/>
-
-  <bean class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor" />
-  
-  <tx:annotation-driven/>
-  <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
-    <property name="entityManagerFactory" ref="entityManagerFactory"/>
-  </bean>
- -->
-
 
 </blueprint>
 
