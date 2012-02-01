@@ -15,5 +15,7 @@ Import-Package: javax.persistence;version="2.0.3",
  org.springframework.aop;version="3.1.0.RELEASE",
  org.springframework.aop.framework;version="3.1.0.RELEASE",
  org.springframework.orm.jpa;version="3.1.0.RELEASE",
+ org.springframework.orm.jpa.support;version="3.1.0.RELEASE",
+ org.springframework.stereotype;version="3.1.0.RELEASE",
  org.springframework.transaction.annotation;version="3.1.0.RELEASE"
 Export-Package: com.pe_international.sample.service

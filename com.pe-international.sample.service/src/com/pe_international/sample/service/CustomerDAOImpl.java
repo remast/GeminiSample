@@ -4,16 +4,23 @@ import java.util.Collection;
 import java.util.List;
 
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
+import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 
 import model.account.Customer;
 
+import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+@Repository
 public class CustomerDAOImpl implements CustomerDAO {
 
-	private EntityManagerFactory entityManagerFactory;
+	private EntityManager entityManager;
+
+	@PersistenceContext
+	public void setEntityManager(EntityManager entityManager) {
+		this.entityManager = entityManager;
+	}
 
 	//	private JpaTransactionManager transactionManager;
 	//
@@ -25,19 +32,9 @@ public class CustomerDAOImpl implements CustomerDAO {
 	//		this.transactionManager = transactionManager;
 	//	}
 
-	public EntityManagerFactory getEntityManagerFactory() {
-		return entityManagerFactory;
-	}
-
-	public void setEntityManagerFactory(EntityManagerFactory entityManagerFactory) {
-		this.entityManagerFactory = entityManagerFactory;
-	}
-
 
 	@Transactional
 	public Collection<Customer> list() {
-		EntityManager entityManager = entityManagerFactory.createEntityManager();
-
 		TypedQuery<Customer> q = entityManager.createQuery("SELECT a FROM Customer a", Customer.class);
 		List<Customer> results = q.getResultList();
 
@@ -46,14 +43,8 @@ public class CustomerDAOImpl implements CustomerDAO {
 
 	@Transactional
 	public void addCustomer(String lastName, String firstName, String address) {
-		EntityManager entityManager = entityManagerFactory.createEntityManager();
-		try {
-			Customer c = new Customer(lastName, firstName, address);
-			entityManager.persist(c);
-		} finally {
-			entityManager.close();
-		}
-
+		Customer c = new Customer(lastName, firstName, address);
+		entityManager.persist(c);
 	}
 
 }

@@ -13,9 +13,10 @@
   <bean id="helloWorld" class="com.pe_international.sample.service.HelloWorldImpl">
   <property name="entityManagerFactory" ref="entityManagerFactory"/>
   </bean>
+  
+  <bean class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor" />
 
   <bean id="customerDAO" class="com.pe_international.sample.service.CustomerDAOImpl">
-    <property name="entityManagerFactory" ref="entityManagerFactory"/>
   </bean>
   <service ref="customerDAO" auto-export="interfaces"/>
   
