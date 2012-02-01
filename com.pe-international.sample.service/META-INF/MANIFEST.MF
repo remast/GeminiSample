@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Service
+Bundle-SymbolicName: com.pe-international.sample.service
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: com.pe_international.sample.service.Activator
+Bundle-Vendor: PE-INTERNATIONAL
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-ActivationPolicy: lazy
+Import-Package: javax.persistence;version="2.0.3",
+ org.eclipse.gemini.blueprint;version="1.0.0.RELEASE",
+ org.osgi.framework;version="1.6.0",
+ org.springframework.orm.jpa;version="3.1.0.RELEASE"
