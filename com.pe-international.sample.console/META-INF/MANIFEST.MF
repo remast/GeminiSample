@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Console
+Bundle-SymbolicName: com.pe-international.sample.console
+Bundle-Version: 1.0.0.qualifier
+Bundle-Vendor: PE-INTERNATIONAL
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Import-Package: com.pe_international.sample.service,
+ model.account,
+ org.eclipse.gemini.blueprint;version="1.0.0.RELEASE",
+ org.eclipse.osgi.framework.console;version="1.1.0"
