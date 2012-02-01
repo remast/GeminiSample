@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<blueprint xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0"
+	xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+	xsi:schemaLocation="http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
+  		 http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-3.0.xsd
+         http://www.osgi.org/xmlns/blueprint/v1.0.0 http://www.osgi.org/xmlns/blueprint/v1.0.0/blueprint.xsd">
+
+
+
+  <jdbc:embedded-database id="dataSource" type="H2" />
+ 
+  <bean id="helloDataSource" class="com.pe_international.sample.service.HelloDataSourceImpl">
+  <property name="dataSource" ref="dataSource"/>
+  </bean>
+  <service ref="helloDataSource" auto-export="interfaces"/>
+
+<!-- 
+    <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+        <property name="entityManagerFactory" ref="entityManagerFactory" />
+    </bean>
+    
+
+
+  <service ref="transactionManager" auto-export="interfaces"/>
+
+  <reference id="entityManagerFactory" interface="javax.persistence.EntityManagerFactory"/>
+  <reference id="dataSource" interface="javax.sql.DataSource"/>
+
+  <bean class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor" />
+  <tx:annotation-driven/>
+  <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+    <property name="entityManagerFactory" ref="entityManagerFactory"/>
+  </bean>
+  <jdbc:embedded-database id="dataSource" type="H2" />
+ -->
+  
+  <!-- 
+   <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+        <property name="entityManagerFactory" ref="entityManagerFactory" />
+    </bean>
+   -->
+
+</blueprint>
+

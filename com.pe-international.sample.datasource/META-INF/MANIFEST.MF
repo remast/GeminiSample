@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Datasource
+Bundle-SymbolicName: com.pe-international.sample.datasource
+Bundle-Version: 1.0.0.qualifier
+Bundle-Vendor: PE-INTERNATIONAL
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Import-Package: org.eclipse.gemini.blueprint;version="1.0.0.RELEASE",
+ org.osgi.framework;version="1.6.0"
