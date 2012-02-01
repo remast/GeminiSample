@@ -8,15 +8,15 @@ public class HelloWorldImpl implements HelloWorld {
 	
 	private EntityManagerFactory entityManagerFactory;
 	
-	private JpaTransactionManager transactionManager;
-
-	public JpaTransactionManager getTransactionManager() {
-		return transactionManager;
-	}
-
-	public void setTransactionManager(JpaTransactionManager transactionManager) {
-		this.transactionManager = transactionManager;
-	}
+//	private JpaTransactionManager transactionManager;
+//
+//	public JpaTransactionManager getTransactionManager() {
+//		return transactionManager;
+//	}
+//
+//	public void setTransactionManager(JpaTransactionManager transactionManager) {
+//		this.transactionManager = transactionManager;
+//	}
 
 	public EntityManagerFactory getEntityManagerFactory() {
 		return entityManagerFactory;

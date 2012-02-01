@@ -14,8 +14,12 @@
   <property name="entityManagerFactory" ref="entityManagerFactory"/>
   </bean>
 
-  <service ref="helloWorld" auto-export="interfaces"/>
+  <bean id="customerDAO" class="com.pe_international.sample.service.CustomerDAOImpl">
+    <property name="entityManagerFactory" ref="entityManagerFactory"/>
+  </bean>
+  <service ref="customerDAO" auto-export="interfaces"/>
   
+  <service ref="helloWorld" auto-export="interfaces"/>
   <tx:annotation-driven/>
   <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
     <property name="entityManagerFactory" ref="entityManagerFactory"/>

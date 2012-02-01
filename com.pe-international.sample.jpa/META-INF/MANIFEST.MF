@@ -13,3 +13,4 @@ Import-Package: javax.persistence;jpa="2.0";version="1.1.0",
  org.osgi.util.tracker
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Bundle-Activator: sample.Activator
+Export-Package: model.account
