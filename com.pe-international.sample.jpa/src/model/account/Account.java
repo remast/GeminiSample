@@ -14,16 +14,12 @@
  ******************************************************************************/
 package model.account;
 
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
-import javax.persistence.OrderBy;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -43,10 +39,6 @@ public class Account {
     @OneToOne(mappedBy="account")
     Customer customer;
 
-    @OneToMany(mappedBy="account")
-    @OrderBy("txTime")
-    List<Transaction> txns;
-    
     @Temporal(TemporalType.DATE)
     public Date dateCreated;
 
@@ -59,7 +51,6 @@ public class Account {
         this.balance = 0;
         this.customer = customer;
         customer.setAccount(this);
-        this.txns = new ArrayList<Transaction>();
     }
     
     /* Getters and setters */
@@ -71,9 +62,6 @@ public class Account {
 
     public Customer getCustomer() { return customer; }
     public void setCustomer(Customer customer) { this.customer = customer; }
-    
-    public List<Transaction> getTxns() { return txns; }
-    public void setTxns(List<Transaction> txns) { this.txns = txns; }
     
     public String toString() {
         return "Account(" + id + ", " + ((customer!=null)?customer.getLastName():"null") + ", Balance: $" + balance + ")";
