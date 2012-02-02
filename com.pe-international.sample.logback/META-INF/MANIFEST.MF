@@ -1,0 +1,8 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Logback
+Bundle-SymbolicName: com.pe-international.sample.logback
+Bundle-Version: 1.0.0.qualifier
+Bundle-Vendor: PE-INTERNATIONAL
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Fragment-Host: ch.qos.logback.classic;bundle-version="0.9.27"
