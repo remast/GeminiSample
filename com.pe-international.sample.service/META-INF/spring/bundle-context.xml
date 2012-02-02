@@ -4,9 +4,7 @@
   xmlns:tx="http://www.springframework.org/schema/tx"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  
   xsi:schemaLocation="http://www.springframework.org/schema/tx
-         http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
-         http://www.osgi.org/xmlns/blueprint/v1.0.0
-         http://www.osgi.org/xmlns/blueprint/v1.0.0/blueprint.xsd">
+         http://www.springframework.org/schema/tx/spring-tx-3.0.xsd">
 
   <reference id="entityManagerFactory" interface="javax.persistence.EntityManagerFactory"/>
  

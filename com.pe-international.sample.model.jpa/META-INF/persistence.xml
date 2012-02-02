@@ -7,9 +7,8 @@
     <persistence-unit name="Accounts" transaction-type="RESOURCE_LOCAL">
         <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
 
-        <class>model.account.Account</class>
-        <class>model.account.Customer</class>
-        <class>model.account.Transaction</class>
+        <class>model.account.jpa.AccountImpl</class>
+        <class>model.account.jpa.CustomerImpl</class>
 
         <exclude-unlisted-classes>true</exclude-unlisted-classes>
 

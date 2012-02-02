@@ -2,15 +2,16 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Meta-Persistence: META-INF/persistence.xml
 Bundle-Name: Jpa
-Bundle-SymbolicName: com.pe-international.sample.jpa
+Bundle-SymbolicName: com.pe-international.sample.model.jpa
 Bundle-Version: 1.0.0.qualifier
 Bundle-Vendor: PE-INTERNATIONAL
 Import-Package: javax.persistence;jpa="2.0";version="1.1.0",
  javax.persistence.criteria;jpa="2.0";version="1.1.0",
  javax.persistence.metamodel;jpa="2.0";version="1.1.0",
+ model.account,
  org.osgi.framework;version="1.6.0",
  org.osgi.service.jpa,
  org.osgi.util.tracker
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Bundle-Activator: sample.Activator
-Export-Package: model.account
+Export-Package: model.account.jpa

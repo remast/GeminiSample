@@ -4,14 +4,10 @@ import java.util.List;
 
 import model.account.Account;
 
-import org.springframework.data.jpa.repository.JpaRepository;
-
-public interface AccountRepository extends JpaRepository<Account, Integer> {
+public interface AccountRepository {
 	
-	@Override
 	public List<Account> findAll();
 	
-	@Override
 	public Account save(Account account);
-
+	
 }

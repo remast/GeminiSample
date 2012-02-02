@@ -1,5 +1,6 @@
 package com.pe_international.sample.service;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
@@ -8,6 +9,7 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 
 import model.account.Customer;
+import model.account.jpa.CustomerImpl;
 
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -24,14 +26,20 @@ public class CustomerDAOImpl implements CustomerDAO {
 
 	@Transactional
 	public Collection<Customer> list() {
-		TypedQuery<Customer> q = entityManager.createQuery("SELECT a FROM Customer a", Customer.class);
-		List<Customer> results = q.getResultList();
-		return results;
+		TypedQuery<CustomerImpl> q = entityManager.createQuery("SELECT a FROM CustomerImpl a", CustomerImpl.class);
+		List<CustomerImpl> results = q.getResultList();
+		
+		List<Customer> as = new ArrayList<Customer>();
+		for (Customer a : results) {
+			as.add(a);
+		}
+
+		return as;
 	}
 
 	@Transactional
 	public void addCustomer(String lastName, String firstName, String address) {
-		Customer c = new Customer(lastName, firstName, address);
+		CustomerImpl c = new CustomerImpl(lastName, firstName, address);
 		entityManager.persist(c);
 	}
 

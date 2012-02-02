@@ -12,9 +12,16 @@
  * Contributors:
  *     mkeith - Gemini JPA Sample 
  ******************************************************************************/
-package model.account;
+package model.account.jpa;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+
+import model.account.Account;
+import model.account.Customer;
 
 /**
  * Gemini JPA Sample class
@@ -22,7 +29,7 @@ import javax.persistence.*;
  * @author mkeith
  */
 @Entity
-public class Customer {
+public class CustomerImpl implements Customer {
     @Id @GeneratedValue
     int id;
     
@@ -35,12 +42,12 @@ public class Customer {
     @Column(name="ADDR")
     String address;
 
-    @OneToOne
+    @OneToOne(targetEntity=AccountImpl.class)
     Account account;
 
     /* Constructors */
-    public Customer() { super(); }
-    public Customer(String lastName, String firstName, String address) {
+    public CustomerImpl() { super(); }
+    public CustomerImpl(String lastName, String firstName, String address) {
         super();
         this.lastName = lastName;
         this.firstName = firstName;
@@ -63,6 +70,6 @@ public class Customer {
     public void setAccount(Account account) { this.account = account; }
     
     public String toString() {
-        return "Customer(" + firstName + " " + lastName + ", " + address + ")";
+        return "CustomerImpl(" + firstName + " " + lastName + ", " + address + ")";
     }
 }
