@@ -26,7 +26,6 @@ public class CustomerDAOImpl implements CustomerDAO {
 	public Collection<Customer> list() {
 		TypedQuery<Customer> q = entityManager.createQuery("SELECT a FROM Customer a", Customer.class);
 		List<Customer> results = q.getResultList();
-
 		return results;
 	}
 
