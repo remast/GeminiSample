@@ -12,9 +12,12 @@
 
 package com.pe_international.vaadin.pm.tableview;
 
+import model.account.Customer;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.pe_international.sample.service.CustomerDAO;
 import com.pe_international.vaadin.pm.main.service.IViewContribution;
 import com.vaadin.Application;
 import com.vaadin.ui.Component;
@@ -38,6 +41,16 @@ public class TableView implements IViewContribution {
 	public String getName() {
 		return "Table View";
 	}
+	
+	private CustomerDAO customerDAO;
+
+	public CustomerDAO getCustomerDAO() {
+		return customerDAO;
+	}
+
+	public void setCustomerDAO(CustomerDAO customerDAO) {
+		this.customerDAO = customerDAO;
+	}
 
 	@Override
 	public Component getView(Application application) {
@@ -49,7 +62,7 @@ public class TableView implements IViewContribution {
 			table.addContainerProperty("Name", String.class, null);
 			table.addContainerProperty("First Name", String.class, null);
 			table.addContainerProperty("Last Name", String.class, null);
-			table.addContainerProperty("Company", String.class, null);
+			table.addContainerProperty("Adress", String.class, null);
 			table.setWidth("100%");
 			table.setPageLength(9);
 
@@ -91,12 +104,12 @@ public class TableView implements IViewContribution {
 		table.removeAllItems();
 
 		int i = 1;
-//		for (IPerson person : persons) {
-		for (int j = 0; j < 20; j++) {
+		for (Customer person : customerDAO.list()) {
+//		for (int j = 0; j < 20; j++) {
 			
-			String firstName = "First " + j;
-			String lastName = "Last " + j;
-			String company = "Company " + j;
+			String firstName =  person.getFirstName();
+			String lastName = person.getLastName();
+			String address = person.getAddress();
 			table.addItem(
 			      new Object[] {
 //			            person.getFirstName() + " " + person.getLastName(),
@@ -104,7 +117,7 @@ public class TableView implements IViewContribution {
 //			            person.getCompany() }, i++);
 			    		  firstName + " " + lastName,
 			    		  firstName, lastName,
-			    		  company }, i++);
+			    		  address }, i++);
 		}
 	}
 }

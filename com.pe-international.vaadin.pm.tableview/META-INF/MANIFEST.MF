@@ -7,5 +7,7 @@ Bundle-Vendor: SIEMENS
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Require-Bundle: com.pe-international.pm.main;bundle-version="1.0.0",
  com.vaadin;bundle-version="6.7.4"
-Import-Package: org.eclipse.gemini.blueprint;version="1.0.0.RELEASE",
+Import-Package: com.pe_international.sample.service,
+ model.account,
+ org.eclipse.gemini.blueprint;version="1.0.0.RELEASE",
  org.slf4j
