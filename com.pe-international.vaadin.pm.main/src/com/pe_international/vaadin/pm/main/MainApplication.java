@@ -177,13 +177,7 @@ public class MainApplication extends Application {
 			H2 title = new H2("Dynamic Vaadin OSGi Demo");
 			titleLayout.addComponent(title);
 			SmallText description = new SmallText(
-			      "<br>Copyright (c) Siemens AG, Kai Tödter and others.<br>"
-			            + "Licensed under Eclipse Public License (EPL).<br><br>"
-			            + "This software contains modules licenced under<br>"
-			            + " the Apache Software Foundation 2.0 license (ASF) and EPL<br><br>"
-			            + "Many thanks to Chris Brind, Neil Bartlett and<br>"
-			            + " Petter Holmström for their OSGi and Vaadin<br>"
-			            + " related work, blogs, and bundles.<br><br>"
+			      "<br>Copyright (c) PE INTERNATIONAL and others.<br>"
 			            + "The icons are from the Silk icon set by Mark James<br>"
 			            + "<a href=\"http://www.famfamfam.com/lab/icons/silk/\">http://www.famfamfam.com/lab/icons/silk/</a>");
 			description.setSizeUndefined();

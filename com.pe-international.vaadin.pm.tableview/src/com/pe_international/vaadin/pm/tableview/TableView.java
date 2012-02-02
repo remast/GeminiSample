@@ -68,7 +68,8 @@ public class TableView implements ViewContribution {
 			table.addContainerProperty("Last Name", String.class, null);
 			table.addContainerProperty("Adress", String.class, null);
 			table.setWidth("100%");
-			table.setPageLength(9);
+			table.setHeight("100%");
+//			table.setPageLength(9);
 
 			table.setImmediate(true);
 
