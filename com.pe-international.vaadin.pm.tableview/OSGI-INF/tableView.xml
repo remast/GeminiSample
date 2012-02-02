@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" name="com.pe-international.vaadin.pm.tableview">
-   <implementation class="com.pe_international.vaadin.pm.tableview.TableView"/>
-   <service>
-      <provide interface="com.pe_international.vaadin.pm.main.service.IViewContribution"/>
-   </service>
-</scr:component>
