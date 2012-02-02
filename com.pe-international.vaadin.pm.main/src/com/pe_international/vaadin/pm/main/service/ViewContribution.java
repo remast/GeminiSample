@@ -13,11 +13,15 @@
 package com.pe_international.vaadin.pm.main.service;
 
 import com.vaadin.Application;
+import com.vaadin.ui.Component;
 
-public interface IActionContribution {
-	String getIcon();
+/**
+ * A simple view UI contribution
+ */
+public interface ViewContribution {
+	public Component getView(Application application);
 
-	String getText();
+	public String getIcon();
 
-	void execute(Application application);
+	public String getName();
 }

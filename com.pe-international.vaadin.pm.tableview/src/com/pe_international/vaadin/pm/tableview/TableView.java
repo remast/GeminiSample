@@ -18,19 +18,23 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.pe_international.sample.service.CustomerDAO;
-import com.pe_international.vaadin.pm.main.service.IViewContribution;
+import com.pe_international.vaadin.pm.main.service.ViewContribution;
 import com.vaadin.Application;
+import com.vaadin.ui.Button;
+import com.vaadin.ui.Button.ClickEvent;
 import com.vaadin.ui.Component;
 import com.vaadin.ui.Table;
 import com.vaadin.ui.VerticalLayout;
 
-public class TableView implements IViewContribution {
+public class TableView implements ViewContribution {
 
 	protected Logger logger = LoggerFactory.getLogger(TableView.class);
 
 	private Component view;
 
 	private Table table;
+
+	private Button reloadButton;
 
 	@Override
 	public String getIcon() {
@@ -41,7 +45,7 @@ public class TableView implements IViewContribution {
 	public String getName() {
 		return "Table View";
 	}
-	
+
 	private CustomerDAO customerDAO;
 
 	public CustomerDAO getCustomerDAO() {
@@ -68,56 +72,43 @@ public class TableView implements IViewContribution {
 
 			table.setImmediate(true);
 
+			reloadButton = new Button("Reload");
+			reloadButton.addListener(new Button.ClickListener() {
+
+				@Override
+				public void buttonClick(ClickEvent event) {
+					refreshTable();
+				}
+			});
+
+			verticalLayout.addComponent(reloadButton);
 			verticalLayout.addComponent(table);
 			view = verticalLayout;
 
-//			synchronized (this) {
-//				if (personManager != null) {
-					refreshTable();
-//				}
-//			}
+			refreshTable();
 
 		}
 		return view;
 	}
 
-//	public void removePersonManager(final IPersonManager personManager) {
-//		logger.debug("TableView.removePersonManager()");
-//		if (this.personManager == personManager) {
-//			this.personManager = null;
-//			table.removeAllItems();
-//		}
-//	}
-
-//	public void setPersonManager(final IPersonManager personManager) {
-//		logger.debug("TableView.setPersonManager()");
-////		synchronized (this) {
-////			this.personManager = personManager;
-////			if (table != null) {
-//				refreshTable();
-////			}
-////		}
-//	}
-
 	void refreshTable() {
-//		List<IPerson> persons = personManager.getPersons();
-		table.removeAllItems();
+		synchronized (this) {
+			if (customerDAO != null) {
+				table.removeAllItems();
 
-		int i = 1;
-		for (Customer person : customerDAO.list()) {
-//		for (int j = 0; j < 20; j++) {
-			
-			String firstName =  person.getFirstName();
-			String lastName = person.getLastName();
-			String address = person.getAddress();
-			table.addItem(
-			      new Object[] {
-//			            person.getFirstName() + " " + person.getLastName(),
-//			            person.getFirstName(), person.getLastName(),
-//			            person.getCompany() }, i++);
-			    		  firstName + " " + lastName,
-			    		  firstName, lastName,
-			    		  address }, i++);
+				int i = 1;
+				for (Customer person : customerDAO.list()) {
+					String firstName =  person.getFirstName();
+					String lastName = person.getLastName();
+					String address = person.getAddress();
+					table.addItem(
+							new Object[] {
+									firstName + " " + lastName,
+									firstName, lastName,
+									address }, i++);
+				}
+			}
 		}
 	}
+	
 }

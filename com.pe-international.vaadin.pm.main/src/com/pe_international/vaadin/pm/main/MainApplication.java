@@ -21,8 +21,8 @@ import java.util.Map;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.pe_international.vaadin.pm.main.service.IActionContribution;
-import com.pe_international.vaadin.pm.main.service.IViewContribution;
+import com.pe_international.vaadin.pm.main.service.ActionContribution;
+import com.pe_international.vaadin.pm.main.service.ViewContribution;
 import com.vaadin.Application;
 import com.vaadin.terminal.ThemeResource;
 import com.vaadin.ui.Button;
@@ -45,14 +45,14 @@ public class MainApplication extends Application {
 	private static final long serialVersionUID = 1L;
 	private final Logger logger = LoggerFactory.getLogger(MainApplication.class);
 
-	private final List<IViewContribution> viewContributions = Collections
-	      .synchronizedList(new ArrayList<IViewContribution>());
-	private final List<IActionContribution> actionContributions = Collections
-	      .synchronizedList(new ArrayList<IActionContribution>());
-	private final Map<IActionContribution, Button> buttonActionMap = Collections
-	      .synchronizedMap(new HashMap<IActionContribution, Button>());
-	private final Map<IActionContribution, MenuItem> menuActionMap = Collections
-	      .synchronizedMap(new HashMap<IActionContribution, MenuItem>());
+	private final List<ViewContribution> viewContributions = Collections
+	      .synchronizedList(new ArrayList<ViewContribution>());
+	private final List<ActionContribution> actionContributions = Collections
+	      .synchronizedList(new ArrayList<ActionContribution>());
+	private final Map<ActionContribution, Button> buttonActionMap = Collections
+	      .synchronizedMap(new HashMap<ActionContribution, Button>());
+	private final Map<ActionContribution, MenuItem> menuActionMap = Collections
+	      .synchronizedMap(new HashMap<ActionContribution, MenuItem>());
 
 	private Window main;
 	private VerticalLayout mainLayout;
@@ -95,13 +95,13 @@ public class MainApplication extends Application {
 		mainLayout.addComponent(margin);
 		mainLayout.setExpandRatio(margin, 1);
 
-		for (IViewContribution viewContribution : viewContributions) {
+		for (ViewContribution viewContribution : viewContributions) {
 			tabSheet.addTab(viewContribution.getView(this),
 			      viewContribution.getName(),
 			      new ThemeResource(viewContribution.getIcon()));
 		}
 
-		for (IActionContribution actionContribution : actionContributions) {
+		for (ActionContribution actionContribution : actionContributions) {
 			addActionContribution(actionContribution);
 		}
 
@@ -206,7 +206,7 @@ public class MainApplication extends Application {
 		return aboutWindow;
 	}
 
-	public void bindViewContribution(IViewContribution viewContribution) {
+	public void bindViewContribution(ViewContribution viewContribution) {
 		logger.debug("bindViewContribution()");
 		viewContributions.add(viewContribution);
 		if (initialized) {
@@ -216,7 +216,7 @@ public class MainApplication extends Application {
 		}
 	}
 
-	public void unbindViewContribution(IViewContribution viewContribution) {
+	public void unbindViewContribution(ViewContribution viewContribution) {
 		logger.debug("unbindViewContribution()");
 		viewContributions.remove(viewContribution);
 		if (initialized) {
@@ -225,7 +225,7 @@ public class MainApplication extends Application {
 	}
 
 	public void bindActionContribution(
-	      final IActionContribution actionContribution) {
+	      final ActionContribution actionContribution) {
 		logger.debug("bindActionContribution()");
 		if (initialized) {
 			addActionContribution(actionContribution);
@@ -234,7 +234,7 @@ public class MainApplication extends Application {
 	}
 
 	private void addActionContribution(
-	      final IActionContribution actionContribution) {
+	      final ActionContribution actionContribution) {
 		final Application application = this;
 		Button button = new Button(actionContribution.getText());
 		button.setIcon(new ThemeResource(actionContribution.getIcon()));
@@ -261,7 +261,7 @@ public class MainApplication extends Application {
 		menuActionMap.put(actionContribution, menuItem);
 	}
 
-	public void unbindActionContribution(IActionContribution actionContribution) {
+	public void unbindActionContribution(ActionContribution actionContribution) {
 		logger.debug("unbindActionContribution()");
 		Button button = buttonActionMap.get(actionContribution);
 		toolbar.removeComponent(button);
