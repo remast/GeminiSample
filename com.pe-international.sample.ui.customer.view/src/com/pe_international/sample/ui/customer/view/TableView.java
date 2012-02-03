@@ -63,6 +63,7 @@ public class TableView implements ViewContribution {
       if (view == null) {
          final VerticalLayout verticalLayout = new VerticalLayout();
          verticalLayout.setMargin(true);
+         verticalLayout.setSpacing(true);
 
          table = new Table();
          table.addContainerProperty("Name", String.class, null);

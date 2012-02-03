@@ -7,8 +7,6 @@
  *******************************************************************************/
 package com.pe_international.sample.ui.account.view;
 
-import javax.swing.text.StyleContext.SmallAttributeSet;
-
 import model.account.Account;
 
 import org.slf4j.Logger;
@@ -55,6 +53,7 @@ public class TableView implements ViewContribution {
       if (view == null) {
          final VerticalLayout verticalLayout = new VerticalLayout();
          verticalLayout.setMargin(true);
+         verticalLayout.setSpacing(true);
 
          table = new Table();
          table.addContainerProperty("Customer", String.class, null);
