@@ -1,15 +1,10 @@
 /*******************************************************************************
- * Copyright (c) 2010 Kai Toedter and Siemens AG
+ * Copyright (c) 2012 PE INTERNATIONAL AG.
+ * All rights reserved.
  * 
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
  * Contributors:
- *    Kai Toedter - initial API and implementation
+ *    Jan Stamer - initial API and implementation
  *******************************************************************************/
-
 package com.pe_international.sample.ui.main.service;
 
 import com.vaadin.Application;
