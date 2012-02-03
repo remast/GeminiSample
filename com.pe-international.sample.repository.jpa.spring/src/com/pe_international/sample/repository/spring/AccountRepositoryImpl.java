@@ -44,4 +44,9 @@ public class AccountRepositoryImpl implements AccountRepository {
       return new AccountImpl();
    }
 
+   @Override
+   public long count() {
+      return accountJpaRepository.count();
+   }
+
 }

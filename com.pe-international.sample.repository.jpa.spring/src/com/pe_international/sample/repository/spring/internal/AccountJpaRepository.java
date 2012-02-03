@@ -16,9 +16,12 @@ import org.springframework.data.jpa.repository.JpaRepository;
 public interface AccountJpaRepository extends JpaRepository<AccountImpl, Integer> {
 
    @Override
-   public List<AccountImpl> findAll();
+   List<AccountImpl> findAll();
 
    @Override
-   public AccountImpl save(AccountImpl account);
+   AccountImpl save(AccountImpl account);
+   
+   @Override
+   long count();
 
 }

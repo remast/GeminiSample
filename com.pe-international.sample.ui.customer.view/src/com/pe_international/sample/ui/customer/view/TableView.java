@@ -74,6 +74,8 @@ public class TableView implements ViewContribution {
          // table.setPageLength(9);
 
          table.setImmediate(true);
+         table.setColumnReorderingAllowed(true);
+         table.setColumnCollapsingAllowed(true);
 
          addButton = new Button("Add");
          addButton.setIcon(new ThemeResource("icons/user_add.png"));

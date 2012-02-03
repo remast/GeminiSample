@@ -7,6 +7,8 @@
  *******************************************************************************/
 package com.pe_international.sample.ui.account.view;
 
+import javax.swing.text.StyleContext.SmallAttributeSet;
+
 import model.account.Account;
 
 import org.slf4j.Logger;
@@ -16,6 +18,7 @@ import com.pe_international.sample.repository.AccountRepository;
 import com.pe_international.sample.ui.main.service.ViewContribution;
 import com.vaadin.Application;
 import com.vaadin.ui.Component;
+import com.vaadin.ui.Label;
 import com.vaadin.ui.Table;
 import com.vaadin.ui.VerticalLayout;
 
@@ -61,7 +64,9 @@ public class TableView implements ViewContribution {
          // table.setPageLength(9);
 
          table.setImmediate(true);
-
+         table.setColumnReorderingAllowed(true);
+         table.setColumnCollapsingAllowed(true);
+         
 //         addButton = new Button("Add");
 //         addButton.setIcon(new ThemeResource("icons/add.png"));
 //         addButton.addListener(new Button.ClickListener() {
@@ -124,6 +129,10 @@ public class TableView implements ViewContribution {
 //            }
 //         });
 //         verticalLayout.addComponent(addButton);
+         
+         long countAccounts = accountRepository.count();
+         Label l = new Label(String.format("Found %s accounts.",countAccounts));
+         verticalLayout.addComponent(l);
 
          verticalLayout.addComponent(table);
          view = verticalLayout;
