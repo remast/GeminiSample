@@ -17,6 +17,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.pe_international.sample.ui.main.service.ActionContribution;
+import com.pe_international.sample.ui.main.service.User;
 import com.pe_international.sample.ui.main.service.ViewContribution;
 import com.vaadin.Application;
 import com.vaadin.terminal.ThemeResource;
@@ -51,6 +52,9 @@ public class MainApplication extends Application {
          .synchronizedMap(new HashMap<ActionContribution, MenuItem>());
 
    private Window main;
+   
+   private Window login;
+   
    private VerticalLayout mainLayout;
    private TabSheet tabSheet;
    private Window aboutWindow;
@@ -61,12 +65,19 @@ public class MainApplication extends Application {
 
    private MenuBar.MenuItem actionMenu;
 
-   @Override
-   public void init() {
-      logger.info("Initializing PE International OSGi samples ...");
-      setTheme(Reindeer.THEME_NAME);
-      // setTheme(Runo.THEME_NAME);
-      // setTheme("demo");
+   public void authenticate(String login, String password) throws Exception {
+      if ("admin".equals(login) && "admin".equals(password)) {
+         User user = new UserImpl(login);
+         setUser(user);
+         loadProtectedResources();
+         return;
+      }
+
+      throw new Exception("Login failed!");
+
+   }
+
+   private void loadProtectedResources() {
       main = new Window("PE International OSGi Samples");
       mainLayout = (VerticalLayout) main.getContent();
       mainLayout.setMargin(false);
@@ -100,7 +111,19 @@ public class MainApplication extends Application {
          addActionContribution(actionContribution);
       }
 
-      initialized = true;
+      initialized = true;      
+   }
+
+   @Override
+   public void init() {
+      logger.info("Initializing PE International OSGi samples ...");
+      setTheme(Reindeer.THEME_NAME);
+      // setTheme(Runo.THEME_NAME);
+      // setTheme("demo");
+      
+      login = new LoginWindow(this);
+
+      setMainWindow(login);
    }
 
    @SuppressWarnings("serial")
@@ -115,6 +138,12 @@ public class MainApplication extends Application {
             main.showNotification("Built-in Action executed!");
          }
       });
+      actionMenu.addItem("Logout", new Command() {
+         @Override
+         public void menuSelected(MenuItem selectedItem) {
+            logout();
+         }
+      });
       actionMenu.addSeparator();
 
       final MenuBar.MenuItem viewMenu = menubar.addItem("Help", null);
@@ -126,6 +155,12 @@ public class MainApplication extends Application {
       });
 
       return menubar;
+   }
+
+   protected void logout() {
+      setUser(null);
+      removeWindow(main);
+      setMainWindow(login);      
    }
 
    private Layout getHeader() {
