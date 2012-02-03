@@ -25,11 +25,16 @@ public class Client {
       EntityManager em = emf.createEntityManager();
       em.getTransaction().begin();
 
-      CustomerImpl c = new CustomerImpl("Chan", "Jackie", "1034 KingFu Lane, Los Angeles, CA");
-      em.persist(c);
-      AccountImpl a = new AccountImpl(c);
-      a.setBalance(100.0);
-      em.persist(a);
+      CustomerImpl customer1 = new CustomerImpl("Chan", "Jackie", "1034 KingFu Lane, Los Angeles, CA");
+      em.persist(customer1);
+      
+      AccountImpl account1 = new AccountImpl(customer1);
+      account1.setBalance(100.0);
+      em.persist(account1);
+      
+      AccountImpl account2 = new AccountImpl(customer1);
+      account2.setBalance(42.0);
+      em.persist(account2);
 
       em.getTransaction().commit();
 
