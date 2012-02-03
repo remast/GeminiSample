@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Logback
+Bundle-Name: PE Logback Configuration
 Bundle-SymbolicName: com.pe-international.sample.logback
 Bundle-Version: 1.0.0.qualifier
 Bundle-Vendor: PE-INTERNATIONAL

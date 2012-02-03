@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Test
+Bundle-Name: PE Jpa Repository Manual Test
 Bundle-SymbolicName: com.pe-international.sample.repository.jpa.manual.test
 Bundle-Version: 1.0.0.qualifier
 Bundle-Vendor: PE-INTERNATIONAL

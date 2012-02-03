@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Meta-Persistence: META-INF/persistence.xml
-Bundle-Name: Jpa
+Bundle-Name: PE Jpa Model
 Bundle-SymbolicName: com.pe-international.sample.model.jpa
 Bundle-Version: 1.0.0.qualifier
 Bundle-Vendor: PE-INTERNATIONAL

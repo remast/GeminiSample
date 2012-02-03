@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Datajpa
+Bundle-Name: PE Jpa Repository Spring Data
 Bundle-SymbolicName: com.pe-international.sample.repository.jpa.spring
 Bundle-Version: 1.0.0.qualifier
 Bundle-Vendor: PE-INTERNATIONAL
