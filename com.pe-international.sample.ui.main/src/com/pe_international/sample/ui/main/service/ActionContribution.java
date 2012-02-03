@@ -10,9 +10,9 @@ package com.pe_international.sample.ui.main.service;
 import com.vaadin.Application;
 
 public interface ActionContribution {
-	String getIcon();
+   String getIcon();
 
-	String getText();
+   String getText();
 
-	void execute(Application application);
+   void execute(Application application);
 }

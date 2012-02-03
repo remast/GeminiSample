@@ -30,141 +30,137 @@ import com.vaadin.ui.Window;
 
 public class TableView implements ViewContribution {
 
-	protected Logger logger = LoggerFactory.getLogger(TableView.class);
+   protected Logger logger = LoggerFactory.getLogger(TableView.class);
 
-	private Component view;
+   private Component view;
 
-	private Table table;
+   private Table table;
 
-	private Button addButton;
+   private Button addButton;
 
-	@Override
-	public String getIcon() {
-		return "icons/application_view_columns.png";
-	}
+   @Override
+   public String getIcon() {
+      return "icons/application_view_columns.png";
+   }
 
-	@Override
-	public String getName() {
-		return "Customers";
-	}
+   @Override
+   public String getName() {
+      return "Customers";
+   }
 
-	private CustomerRepository customerRepository;
+   private CustomerRepository customerRepository;
 
-	public CustomerRepository getCustomerRepository() {
-		return customerRepository;
-	}
+   public CustomerRepository getCustomerRepository() {
+      return customerRepository;
+   }
 
-	public void setCustomerRepository(CustomerRepository customerRepository) {
-		this.customerRepository = customerRepository;
-	}
+   public void setCustomerRepository(CustomerRepository customerRepository) {
+      this.customerRepository = customerRepository;
+   }
 
-	@Override
-	public Component getView(Application application) {
-		if (view == null) {
-			final VerticalLayout verticalLayout = new VerticalLayout();
-			verticalLayout.setMargin(true);
+   @Override
+   public Component getView(Application application) {
+      if (view == null) {
+         final VerticalLayout verticalLayout = new VerticalLayout();
+         verticalLayout.setMargin(true);
 
-			table = new Table();
-			table.addContainerProperty("Name", String.class, null);
-			table.addContainerProperty("First Name", String.class, null);
-			table.addContainerProperty("Last Name", String.class, null);
-			table.addContainerProperty("Adress", String.class, null);
-			table.setWidth("100%");
-			table.setHeight("100%");
-//			table.setPageLength(9);
+         table = new Table();
+         table.addContainerProperty("Name", String.class, null);
+         table.addContainerProperty("First Name", String.class, null);
+         table.addContainerProperty("Last Name", String.class, null);
+         table.addContainerProperty("Adress", String.class, null);
+         table.setWidth("100%");
+         table.setHeight("100%");
+         // table.setPageLength(9);
 
-			table.setImmediate(true);
-			
-			addButton = new Button("Add");
-			addButton.setIcon(new ThemeResource("icons/add.png"));
-			addButton.addListener(new Button.ClickListener() {
-				
-				@Override
-				public void buttonClick(ClickEvent event) {
-					// Create the window...
-					final Window subwindow = new Window("Add Customer");
-			        // ...and make it modal
-			        subwindow.setModal(true);
-			        subwindow.setWidth("400px");
-			        subwindow.setHeight("300px");
-			        
-			        VerticalLayout layout = (VerticalLayout) subwindow.getContent();
-			        layout.setMargin(true);
-			        layout.setSpacing(true);
-			        layout.setSizeFull();
-			        
-			        Form form = new Form();
-			        
-			        final Customer customer = customerRepository.createTransient();
-			        customer.setFirstName("Ford");
-			        customer.setLastName("Prefect");
-			        customer.setAddress("Earth");
-			        
-			        BeanItem<Customer> item = new BeanItem<Customer>(customer);
-			        
-			        // Bind the bean item as the data source for the form. 
-			        form.setItemDataSource(item);
-			        
-			        
-			        // Set the order of the items in the form. 
-			        Vector<String> order = new Vector<String>();
-			       order.add("firstName");
-			       order.add("lastName");
-			       order.add("address");
-			       form.setVisibleItemProperties(order);		
-//			        form.setCaption("Contact Information");
-			        form.setDescription("Please specify the details of the customer.");
-			        
-			        layout.addComponent(form);
-			        
-			        Button save = new Button("Save", new Button.ClickListener() {
-			            // inline click-listener
-			            public void buttonClick(ClickEvent event) {
-			            	customerRepository.save(customer);
-			            	// close the window by removing it from the parent window
-			                subwindow.getParent().removeWindow(subwindow);
-							refreshTable();
-			            }
-			        });
-			        save.setIcon(new ThemeResource("icons/bullet_disk.png"));
+         table.setImmediate(true);
 
-			        // The components added to the window are actually added to the window's
-			        // layout; you can use either. Alignments are set using the layout
-			        layout.addComponent(save);
-			        layout.setComponentAlignment(save, Alignment.BOTTOM_RIGHT);
+         addButton = new Button("Add");
+         addButton.setIcon(new ThemeResource("icons/add.png"));
+         addButton.addListener(new Button.ClickListener() {
 
-			        verticalLayout.getWindow().addWindow(subwindow);
-				}
-			});
-			verticalLayout.addComponent(addButton);
+            @Override
+            public void buttonClick(ClickEvent event) {
+               // Create the window...
+               final Window subwindow = new Window("Add Customer");
+               // ...and make it modal
+               subwindow.setModal(true);
+               subwindow.setWidth("400px");
+               subwindow.setHeight("300px");
 
-			verticalLayout.addComponent(table);
-			view = verticalLayout;
+               VerticalLayout layout = (VerticalLayout) subwindow.getContent();
+               layout.setMargin(true);
+               layout.setSpacing(true);
+               layout.setSizeFull();
 
-			refreshTable();
+               Form form = new Form();
 
-		}
-		return view;
-	}
+               final Customer customer = customerRepository.createTransient();
+               customer.setFirstName("Ford");
+               customer.setLastName("Prefect");
+               customer.setAddress("Earth");
 
-	void refreshTable() {
-		synchronized (this) {
-			if (customerRepository != null) {
-				table.removeAllItems();
+               BeanItem<Customer> item = new BeanItem<Customer>(customer);
 
-				int i = 1;
-				for (Customer person : customerRepository.findAll()) {
-					String firstName =  person.getFirstName();
-					String lastName = person.getLastName();
-					String address = person.getAddress();
-					table.addItem(
-							new Object[] {
-									firstName + " " + lastName,
-									firstName, lastName,
-									address }, i++);
-				}
-			}
-		}
-	}
-	
+               // Bind the bean item as the data source for the form.
+               form.setItemDataSource(item);
+
+
+               // Set the order of the items in the form.
+               Vector<String> order = new Vector<String>();
+               order.add("firstName");
+               order.add("lastName");
+               order.add("address");
+               form.setVisibleItemProperties(order);
+               // form.setCaption("Contact Information");
+               form.setDescription("Please specify the details of the customer.");
+
+               layout.addComponent(form);
+
+               Button save = new Button("Save", new Button.ClickListener() {
+                  // inline click-listener
+                  public void buttonClick(ClickEvent event) {
+                     customerRepository.save(customer);
+                     // close the window by removing it from the parent window
+                     subwindow.getParent().removeWindow(subwindow);
+                     refreshTable();
+                  }
+               });
+               save.setIcon(new ThemeResource("icons/bullet_disk.png"));
+
+               // The components added to the window are actually added to the window's
+               // layout; you can use either. Alignments are set using the layout
+               layout.addComponent(save);
+               layout.setComponentAlignment(save, Alignment.BOTTOM_RIGHT);
+
+               verticalLayout.getWindow().addWindow(subwindow);
+            }
+         });
+         verticalLayout.addComponent(addButton);
+
+         verticalLayout.addComponent(table);
+         view = verticalLayout;
+
+         refreshTable();
+
+      }
+      return view;
+   }
+
+   void refreshTable() {
+      synchronized (this) {
+         if (customerRepository != null) {
+            table.removeAllItems();
+
+            int i = 1;
+            for (Customer person : customerRepository.findAll()) {
+               String firstName = person.getFirstName();
+               String lastName = person.getLastName();
+               String address = person.getAddress();
+               table.addItem(new Object[] { firstName + " " + lastName, firstName, lastName, address }, i++);
+            }
+         }
+      }
+   }
+
 }

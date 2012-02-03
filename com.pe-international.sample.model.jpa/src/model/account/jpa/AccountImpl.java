@@ -21,45 +21,61 @@ import model.account.Customer;
 
 /**
  * Sample JPA model class
- * 
- * @author mkeith
  */
 @Entity
 public class AccountImpl implements Account {
 
-    @Id @GeneratedValue
-    Integer id;
-    
-    double balance;
-    
-    @OneToOne(mappedBy="account",targetEntity=CustomerImpl.class)
-    Customer customer;
+   @Id
+   @GeneratedValue
+   Integer id;
 
-    @Temporal(TemporalType.DATE)
-    public Date dateCreated;
+   double balance;
 
-    /* Constructors */
-    public AccountImpl() { 
-        dateCreated = new Date(System.currentTimeMillis()); 
-    }
-    public AccountImpl(Customer customer) {
-        this();
-        this.balance = 0;
-        this.customer = customer;
-        customer.setAccount(this);
-    }
-    
-    /* Getters and setters */
-    public int getId() { return id; }
-    public void setId(int id) { this.id = id; }
-    
-    public double getBalance() { return balance; }
-    public void setBalance(double balance) { this.balance = balance; }
+   @OneToOne(mappedBy = "account", targetEntity = CustomerImpl.class)
+   Customer customer;
 
-    public Customer getCustomer() { return customer; }
-    public void setCustomer(Customer customer) { this.customer = customer; }
-    
-    public String toString() {
-        return "AccountImpl(" + id + ", " + ((customer!=null)?customer.getLastName():"null") + ", Balance: $" + balance + ")";
-    }
+   @Temporal(TemporalType.DATE)
+   public Date dateCreated;
+
+   /* Constructors */
+   public AccountImpl() {
+      dateCreated = new Date(System.currentTimeMillis());
+   }
+
+   public AccountImpl(Customer customer) {
+      this();
+      this.balance = 0;
+      this.customer = customer;
+      customer.setAccount(this);
+   }
+
+   /* Getters and setters */
+   public int getId() {
+      return id;
+   }
+
+   public void setId(int id) {
+      this.id = id;
+   }
+
+   public double getBalance() {
+      return balance;
+   }
+
+   public void setBalance(double balance) {
+      this.balance = balance;
+   }
+
+   public Customer getCustomer() {
+      return customer;
+   }
+
+   public void setCustomer(Customer customer) {
+      this.customer = customer;
+   }
+
+   public String toString() {
+      return "AccountImpl(" + id + ", " + ((customer != null) ? customer.getLastName() : "null") + ", Balance: $"
+            + balance + ")";
+   }
 }

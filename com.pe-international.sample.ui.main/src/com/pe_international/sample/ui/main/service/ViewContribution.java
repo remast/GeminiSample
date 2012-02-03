@@ -14,9 +14,9 @@ import com.vaadin.ui.Component;
  * A simple view UI contribution
  */
 public interface ViewContribution {
-	public Component getView(Application application);
+   public Component getView(Application application);
 
-	public String getIcon();
+   public String getIcon();
 
-	public String getName();
+   public String getName();
 }

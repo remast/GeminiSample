@@ -26,43 +26,43 @@ import com.pe_international.sample.repository.CustomerRepository;
 @Repository
 public class CustomerRepositoryImpl implements CustomerRepository {
 
-	private EntityManager entityManager;
+   private EntityManager entityManager;
 
-	@PersistenceContext
-	public void setEntityManager(EntityManager entityManager) {
-		this.entityManager = entityManager;
-	}
+   @PersistenceContext
+   public void setEntityManager(EntityManager entityManager) {
+      this.entityManager = entityManager;
+   }
 
-	@Transactional
-	public Collection<Customer> findAll() {
-		TypedQuery<CustomerImpl> q = entityManager.createQuery("SELECT a FROM CustomerImpl a", CustomerImpl.class);
-		List<CustomerImpl> results = q.getResultList();
-		
-		List<Customer> as = new ArrayList<Customer>();
-		for (Customer a : results) {
-			as.add(a);
-		}
+   @Transactional
+   public Collection<Customer> findAll() {
+      TypedQuery<CustomerImpl> q = entityManager.createQuery("SELECT a FROM CustomerImpl a", CustomerImpl.class);
+      List<CustomerImpl> results = q.getResultList();
 
-		return as;
-	}
+      List<Customer> as = new ArrayList<Customer>();
+      for (Customer a : results) {
+         as.add(a);
+      }
 
-	@Transactional
-	public void addCustomer(String lastName, String firstName, String address) {
-		CustomerImpl c = new CustomerImpl(lastName, firstName, address);
-		entityManager.persist(c);
-	}
-	
-	@Override
-	public Customer createTransient() {
-		return new CustomerImpl();
-	}
+      return as;
+   }
 
-	@Override
-	@Transactional
-	public Customer save(Customer customer) {
-		CustomerImpl customerImpl = (CustomerImpl) customer;
-		entityManager.persist(customerImpl);
-		return customerImpl;
-	}
+   @Transactional
+   public void addCustomer(String lastName, String firstName, String address) {
+      CustomerImpl c = new CustomerImpl(lastName, firstName, address);
+      entityManager.persist(c);
+   }
+
+   @Override
+   public Customer createTransient() {
+      return new CustomerImpl();
+   }
+
+   @Override
+   @Transactional
+   public Customer save(Customer customer) {
+      CustomerImpl customerImpl = (CustomerImpl) customer;
+      entityManager.persist(customerImpl);
+      return customerImpl;
+   }
 
 }

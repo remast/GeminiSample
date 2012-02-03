@@ -18,51 +18,75 @@ import model.account.Customer;
 
 /**
  * Gemini JPA Sample class
- * 
- * @author mkeith
  */
 @Entity
 public class CustomerImpl implements Customer {
-    @Id @GeneratedValue
-    int id;
-    
-    @Column(name="LNAME")
-    String lastName;
-    
-    @Column(name="FNAME")
-    String firstName;
+   @Id
+   @GeneratedValue
+   int id;
 
-    @Column(name="ADDR")
-    String address;
+   @Column(name = "LNAME")
+   String lastName;
 
-    @OneToOne(targetEntity=AccountImpl.class)
-    Account account;
+   @Column(name = "FNAME")
+   String firstName;
 
-    /* Constructors */
-    public CustomerImpl() { super(); }
-    public CustomerImpl(String lastName, String firstName, String address) {
-        super();
-        this.lastName = lastName;
-        this.firstName = firstName;
-        this.address = address;
-    }
+   @Column(name = "ADDR")
+   String address;
 
-    /* Getters and setters */
-    public int getId() { return id; }
-    
-    public String getLastName() { return lastName; }
-    public void setLastName(String lastName) { this.lastName = lastName; }
+   @OneToOne(targetEntity = AccountImpl.class)
+   Account account;
 
-    public String getFirstName() { return firstName; }
-    public void setFirstName(String firstName) { this.firstName = firstName; }
+   /* Constructors */
+   public CustomerImpl() {
+      super();
+   }
 
-    public String getAddress() { return address; }
-    public void setAddress(String address) { this.address = address; }
+   public CustomerImpl(String lastName, String firstName, String address) {
+      super();
+      this.lastName = lastName;
+      this.firstName = firstName;
+      this.address = address;
+   }
 
-    public Account getAccount() { return account; }
-    public void setAccount(Account account) { this.account = account; }
-    
-    public String toString() {
-        return "CustomerImpl(" + firstName + " " + lastName + ", " + address + ")";
-    }
+   /* Getters and setters */
+   public int getId() {
+      return id;
+   }
+
+   public String getLastName() {
+      return lastName;
+   }
+
+   public void setLastName(String lastName) {
+      this.lastName = lastName;
+   }
+
+   public String getFirstName() {
+      return firstName;
+   }
+
+   public void setFirstName(String firstName) {
+      this.firstName = firstName;
+   }
+
+   public String getAddress() {
+      return address;
+   }
+
+   public void setAddress(String address) {
+      this.address = address;
+   }
+
+   public Account getAccount() {
+      return account;
+   }
+
+   public void setAccount(Account account) {
+      this.account = account;
+   }
+
+   public String toString() {
+      return "CustomerImpl(" + firstName + " " + lastName + ", " + address + ")";
+   }
 }
