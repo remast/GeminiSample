@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<blueprint xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0"
+  xmlns:context="http://www.springframework.org/schema/context"
+  xmlns:tx="http://www.springframework.org/schema/tx"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  
+  xsi:schemaLocation="http://www.springframework.org/schema/tx
+         http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
+         http://www.osgi.org/xmlns/blueprint/v1.0.0
+         http://www.osgi.org/xmlns/blueprint/v1.0.0/blueprint.xsd">
+
+	<reference id="customerRepository" interface="com.pe_international.sample.repository.CustomerRepository" />
+
+  <bean id="tableView" class="com.pe_international.sample.ui.customer.view.TableView">
+  	<property name="customerRepository" ref="customerRepository"/>
+  </bean>
+  <service ref="tableView" auto-export="interfaces"/>
+  
+</blueprint>
+

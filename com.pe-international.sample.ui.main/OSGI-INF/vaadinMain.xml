@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" name="com.pe_international.sample.ui.main" factory='vaadin.app'>
+   <implementation class="com.pe_international.sample.ui.main.MainApplication"/>
+   <reference bind="bindViewContribution" cardinality="0..n" interface="com.pe_international.sample.ui.main.service.ViewContribution" name="ViewContribution" policy="dynamic" unbind="unbindViewContribution"/>
+   <reference bind="bindActionContribution" cardinality="0..n" interface="com.pe_international.sample.ui.main.service.ActionContribution" name="ActionContribution" policy="dynamic" unbind="unbindActionContribution"/>
+</scr:component>

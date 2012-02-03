@@ -8,8 +8,8 @@ import model.account.Customer;
 import org.eclipse.osgi.framework.console.CommandInterpreter;
 import org.eclipse.osgi.framework.console.CommandProvider;
 
-import com.pe_international.sample.datajpa.AccountRepository;
-import com.pe_international.sample.service.CustomerDAO;
+import com.pe_international.sample.repository.AccountRepository;
+import com.pe_international.sample.repository.CustomerRepository;
 
 
 public class SampleCommandProvider implements CommandProvider {
@@ -35,7 +35,7 @@ public class SampleCommandProvider implements CommandProvider {
 
 	public void _listCustomers(final CommandInterpreter interpreter) {
 		System.out.println("------- Customers: -------");
-		Collection<Customer> customers =  customerDAO.list();
+		Collection<Customer> customers =  customerRepository.findAll();
 		for (Customer customer : customers) {
 			System.out.println(customer);
 		}
@@ -49,19 +49,19 @@ public class SampleCommandProvider implements CommandProvider {
 			String firstName = "First Name " + i;
 			String lastName = "Last Name " + i;
 			String address = "Adress " + i;
-			customerDAO.addCustomer(lastName, firstName, address);
+			customerRepository.addCustomer(lastName, firstName, address);
 		}
 		System.out.println("------- Customers added ----------------------");
 	}
 
-	private CustomerDAO customerDAO;
+	private CustomerRepository customerRepository;
 
-	public CustomerDAO getCustomerDAO() {
-		return customerDAO;
+	public CustomerRepository getCustomerRepository() {
+		return customerRepository;
 	}
 
-	public void setCustomerDAO(CustomerDAO customerDAO) {
-		this.customerDAO = customerDAO;
+	public void setCustomerRepository(CustomerRepository customerRepository) {
+		this.customerRepository = customerRepository;
 	}
 
 	@Override

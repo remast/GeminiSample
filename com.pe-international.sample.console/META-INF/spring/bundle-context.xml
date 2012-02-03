@@ -10,12 +10,12 @@
 <!-- 
  -->
  
-   <reference id="accountRepository" interface="com.pe_international.sample.datajpa.AccountRepository"/>
+   <reference id="accountRepository" interface="com.pe_international.sample.repository.AccountRepository"/>
  
-	<reference id="customerDAO" interface="com.pe_international.sample.service.CustomerDAO" />
+	<reference id="customerRepository" interface="com.pe_international.sample.repository.CustomerRepository" />
 
 	<bean id="sampleCommandProvider" class="com.pe_international.sample.console.SampleCommandProvider">
-		<property name="customerDAO" ref="customerDAO" />
+		<property name="customerRepository" ref="customerRepository" />
 		<property name="accountRepository" ref="accountRepository" />
 	</bean>
 	

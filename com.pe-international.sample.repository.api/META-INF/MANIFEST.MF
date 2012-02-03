@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Api
+Bundle-SymbolicName: com.pe-international.sample.repository.api
+Bundle-Version: 1.0.0.qualifier
+Bundle-Vendor: PE-INTERNATIONAL
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Import-Package: model.account
+Export-Package: com.pe_international.sample.repository
