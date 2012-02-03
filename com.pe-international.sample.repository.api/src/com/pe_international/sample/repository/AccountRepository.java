@@ -13,8 +13,10 @@ import model.account.Account;
 
 public interface AccountRepository {
 
-   public Collection<Account> findAll();
+   Collection<Account> findAll();
 
-   public Account save(Account account);
+   Account save(Account account);
+   
+   Account createTransient();
 
 }

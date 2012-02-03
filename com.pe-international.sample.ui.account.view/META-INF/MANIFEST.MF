@@ -1,13 +1,13 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: PE UI View Customer
-Bundle-SymbolicName: com.pe-international.sample.ui.customer.view
+Bundle-Name: PE UI View Account
+Bundle-SymbolicName: com.pe-international.sample.ui.account.view
 Bundle-Version: 1.0.0.qualifier
 Bundle-Vendor: PE-INTERNATIONAL
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
-Require-Bundle: com.vaadin;bundle-version="[6.7.4,7.0.0)"
 Import-Package: com.pe_international.sample.repository,
  com.pe_international.sample.ui.main.service,
  model.account,
  org.eclipse.gemini.blueprint;version="1.0.0.RELEASE",
  org.slf4j
+Require-Bundle: com.vaadin;bundle-version="[6.7.4,7.0.0)"

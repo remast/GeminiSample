@@ -39,4 +39,9 @@ public class AccountRepositoryImpl implements AccountRepository {
       return accountJpaRepository.save((AccountImpl) account);
    }
 
+   @Override
+   public Account createTransient() {
+      return new AccountImpl();
+   }
+
 }

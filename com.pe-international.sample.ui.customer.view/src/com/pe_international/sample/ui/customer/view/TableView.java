@@ -40,7 +40,7 @@ public class TableView implements ViewContribution {
 
    @Override
    public String getIcon() {
-      return "icons/application_view_columns.png";
+      return "icons/group.png";
    }
 
    @Override
@@ -76,7 +76,7 @@ public class TableView implements ViewContribution {
          table.setImmediate(true);
 
          addButton = new Button("Add");
-         addButton.setIcon(new ThemeResource("icons/add.png"));
+         addButton.setIcon(new ThemeResource("icons/user_add.png"));
          addButton.addListener(new Button.ClickListener() {
 
             @Override
