@@ -8,7 +8,7 @@
          http://www.osgi.org/xmlns/blueprint/v1.0.0
          http://www.osgi.org/xmlns/blueprint/v1.0.0/blueprint.xsd">
 
-	<reference id="accountRepository" interface="com.pe_international.sample.repository.AccountRepository" />
+   <reference id="accountRepository" interface="com.pe_international.sample.repository.AccountRepository"/>
 
   <bean id="tableView" class="com.pe_international.sample.ui.account.view.TableView">
   	<property name="accountRepository" ref="accountRepository"/>

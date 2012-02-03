@@ -137,13 +137,13 @@ public class MainApplication extends Application {
             main.showNotification("Built-in Action executed!");
          }
       });
+      actionMenu.addSeparator();
       actionMenu.addItem("Logout", new Command() {
          @Override
          public void menuSelected(MenuItem selectedItem) {
             logout();
          }
       });
-      actionMenu.addSeparator();
 
       final MenuBar.MenuItem viewMenu = menubar.addItem("Help", null);
       viewMenu.addItem("About...", new Command() {
