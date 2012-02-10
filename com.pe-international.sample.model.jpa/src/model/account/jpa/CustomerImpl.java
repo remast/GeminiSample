@@ -21,6 +21,7 @@ import model.account.Customer;
  */
 @Entity
 public class CustomerImpl implements Customer {
+	
    @Id
    @GeneratedValue
    int id;
