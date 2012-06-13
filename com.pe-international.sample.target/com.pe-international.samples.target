@@ -1,17 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <?pde version="3.6"?>
 
-<target name="Running Platform" sequenceNumber="69">
+<target name="Running Platform" sequenceNumber="76">
 <locations>
 <location path="${eclipse_home}" type="Profile"/>
-<location path="${project_loc}/bundles" type="Directory"/>
-<location includeAllPlatforms="false" includeMode="planner" includeSource="true" type="InstallableUnit">
-<unit id="org.eclipse.gemini.dbaccess.feature.feature.group" version="1.0.0.RELEASE"/>
-<repository location="http://download.eclipse.org/gemini/dbaccess/updates/1.0/"/>
-</location>
-<location path="${project_loc}/bundles/Eclipse_Gemini_Jpa" type="Directory"/>
-<location path="${project_loc}/bundles/Eclipse_Gemini_Db" type="Directory"/>
-<location path="${project_loc}/bundles/Spring_Data_Jpa_1.1" type="Directory"/>
 <location includeAllPlatforms="false" includeMode="planner" includeSource="true" type="InstallableUnit">
 <unit id="org.eclipse.persistence.jpa.feature.group" version="2.3.1.v20110908-r10021"/>
 <unit id="org.eclipse.persistence.jpa.source.feature.group" version="2.3.1.v20110908-r10021"/>
@@ -19,8 +11,16 @@
 <unit id="org.eclipse.m2e.logback.feature.feature.group" version="1.0.100.20110804-1717"/>
 <repository location="http://download.eclipse.org/releases/indigo/"/>
 </location>
-<location path="${project_loc}/bundles/Vaadin" type="Directory"/>
-<location path="${project_loc}/bundles/Spring_3.1" type="Directory"/>
+<location path="${project_loc:/com.pe-international.sample.target}/bundles" type="Directory"/>
+<location path="${project_loc:/com.pe-international.sample.target}/bundles/Eclipse_Gemini_Db" type="Directory"/>
+<location path="${project_loc:/com.pe-international.sample.target}/bundles/Eclipse_Gemini_Jpa" type="Directory"/>
+<location path="${project_loc:/com.pe-international.sample.target}/bundles/Spring_3.1" type="Directory"/>
+<location path="${project_loc:/com.pe-international.sample.target}/bundles/Spring_Data_Jpa_1.1" type="Directory"/>
+<location path="${project_loc:/com.pe-international.sample.target}/bundles/Vaadin" type="Directory"/>
+<location includeAllPlatforms="false" includeMode="planner" includeSource="true" type="InstallableUnit">
+<unit id="org.eclipse.gemini.dbaccess.feature.feature.group" version="1.0.0.RELEASE"/>
+<repository location="http://download.eclipse.org/gemini/dbaccess/updates/1.0/"/>
+</location>
 </locations>
 <environment>
 <os>win32</os>
