@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+/*******************************************************************************
+ * Copyright (c) 2012 PE INTERNATIONAL AG.
+ * All rights reserved.
+ * 
+ * Contributors:
+ *    Jan Stamer - initial API and implementation
+ *******************************************************************************/
+-->
+<blueprint xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0" 
+           xmlns:osgi="http://www.springframework.org/schema/osgi"
+           xmlns:beans="http://www.springframework.org/schema/beans"
+           xmlns:osgix="http://www.springframework.org/schema/osgi-compendium"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+                               http://www.springframework.org/schema/osgi-compendium http://www.springframework.org/schema/osgi-compendium/spring-osgi-compendium.xsd
+                               http://www.springframework.org/schema/osgi http://www.springframework.org/schema/osgi/spring-osgi.xsd">
+         
+  <reference id="extendedHttpService" interface="org.eclipse.equinox.http.servlet.ExtendedHttpService"/>
+  
+</blueprint>
+

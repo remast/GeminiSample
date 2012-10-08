@@ -9,14 +9,13 @@
 
 	<bean id="helloWorld" class="com.pe_international.sample.service.HelloWorldImpl" />
 
-	<bean class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor" />
-
 	<bean id="customerRepository" class="com.pe_international.sample.service.CustomerRepositoryImpl" />
 	<service ref="customerRepository" auto-export="interfaces" />
 
 	<service ref="helloWorld" auto-export="interfaces" />
 
 	<tx:annotation-driven />
+	
 	<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
 		<property name="entityManagerFactory" ref="entityManagerFactory" />
 	</bean>

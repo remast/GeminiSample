@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <?pde version="3.6"?>
 
-<target name="Running Platform" sequenceNumber="76">
+<target name="Running Platform" sequenceNumber="77">
 <locations>
 <location path="${eclipse_home}" type="Profile"/>
 <location includeAllPlatforms="false" includeMode="planner" includeSource="true" type="InstallableUnit">
@@ -21,6 +21,7 @@
 <unit id="org.eclipse.gemini.dbaccess.feature.feature.group" version="1.0.0.RELEASE"/>
 <repository location="http://download.eclipse.org/gemini/dbaccess/updates/1.0/"/>
 </location>
+<location path="${project_loc:/com.pe-international.sample.target}/bundles/Spring_Security_3.0" type="Directory"/>
 </locations>
 <environment>
 <os>win32</os>

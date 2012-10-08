@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+/*******************************************************************************
+ * Copyright (c) 2012 PE INTERNATIONAL AG.
+ * All rights reserved.
+ * 
+ * Contributors:
+ *    Jan Stamer - initial API and implementation
+ *******************************************************************************/
+-->
+<blueprint xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0" 
+           xmlns:beans="http://www.springframework.org/schema/beans"
+           xmlns:context="http://www.springframework.org/schema/context"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	       xsi:schemaLocation="http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
+                               http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+                               http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+         
+  <bean id="securityFilter" init-method="init" class="com.pe_international.sample.security.internal.SecurityFilter">
+    <property name="httpService" ref="extendedHttpService" />
+    <property name="filterChainProxy" ref="org.springframework.security.filterChainProxy" />
+  </bean>
+  
+</blueprint>
+

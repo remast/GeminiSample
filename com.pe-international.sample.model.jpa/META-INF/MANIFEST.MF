@@ -15,3 +15,5 @@ Import-Package: javax.persistence;jpa="2.0";version="1.1.0",
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Bundle-Activator: sample.Activator
 Export-Package: model.account.jpa
+Require-Bundle: org.eclipse.gemini.blueprint.core;bundle-version="1.0.0",
+ org.eclipse.gemini.blueprint.extender;bundle-version="1.0.0"
