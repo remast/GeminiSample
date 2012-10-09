@@ -18,14 +18,14 @@
   <!-- HTTP basic authentication in Spring Security -->
   <beans:beans profile="default">
     <http>
-      <intercept-url pattern="/**" access="ROLE_USER" />
+      <intercept-url pattern="/**" access="ADMIN" />
       <http-basic />
     </http>
 
     <authentication-manager>
       <authentication-provider>
         <user-service>
-          <user name="max" password="muster" authorities="ROLE_USER" />
+          <user name="max" password="muster" authorities="ADMIN" />
         </user-service>
       </authentication-provider>
     </authentication-manager>
@@ -41,7 +41,7 @@
     <authentication-manager>
       <authentication-provider>
         <user-service>
-          <user name="max" password="muster" authorities="ROLE_USER" />
+          <user name="max" password="muster" authorities="ADMIN" />
         </user-service>
       </authentication-provider>
     </authentication-manager>
