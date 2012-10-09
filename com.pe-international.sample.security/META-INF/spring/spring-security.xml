@@ -25,7 +25,7 @@
     <authentication-manager>
       <authentication-provider>
         <user-service>
-          <user name="GaBi" password="iBaG" authorities="ROLE_USER" />
+          <user name="max" password="muster" authorities="ROLE_USER" />
         </user-service>
       </authentication-provider>
     </authentication-manager>
