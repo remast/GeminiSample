@@ -7,6 +7,6 @@ Bundle-Vendor: PE-INTERNATIONAL
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Require-Bundle: com.vaadin;bundle-version="[6.7.4,7.0.0)"
 Service-Component: OSGI-INF/vaadinMain.xml
-Import-Package: org.slf4j;version="1.6.1"
+Import-Package: org.slf4j;version="[1.6.0,2.0.0)"
 Export-Package: com.pe_international.sample.ui.main.service
 
