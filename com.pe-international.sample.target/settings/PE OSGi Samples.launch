@@ -11,7 +11,7 @@
 <booleanAttribute key="default" value="true"/>
 <booleanAttribute key="default_auto_start" value="true"/>
 <intAttribute key="default_start_level" value="4"/>
-<stringAttribute key="deselected_workspace_plugins" value="com.pe-international.gabi.gw.security,com.pe-international.sample.repository.jpa.manual.test"/>
+<stringAttribute key="deselected_workspace_plugins" value="com.pe-international.sample.repository.jpa.manual.test"/>
 <stringAttribute key="featureDefaultLocation" value="workspace"/>
 <stringAttribute key="featurePluginResolution" value="workspace"/>
 <booleanAttribute key="includeOptional" value="true"/>
@@ -73,5 +73,5 @@
 <booleanAttribute key="tracing" value="false"/>
 <booleanAttribute key="useCustomFeatures" value="false"/>
 <booleanAttribute key="useDefaultConfigArea" value="true"/>
-<stringAttribute key="workspace_bundles" value="com.pe-international.sample.console@default:default,com.pe-international.sample.logback@default:false,com.pe-international.sample.model.api@default:default,com.pe-international.sample.model.jpa@2:default,com.pe-international.sample.repository.api@default:default,com.pe-international.sample.repository.jpa.manual@default:default,com.pe-international.sample.repository.jpa.spring@default:default,com.pe-international.sample.ui.account.view@default:default,com.pe-international.sample.ui.customer.view@default:default,com.pe-international.sample.ui.main@default:default,com.pe-international.sample.ui.theme@default:false"/>
+<stringAttribute key="workspace_bundles" value="com.pe-international.gabi.gw.security@default:default,com.pe-international.sample.console@default:default,com.pe-international.sample.logback@default:false,com.pe-international.sample.model.api@default:default,com.pe-international.sample.model.jpa@2:default,com.pe-international.sample.repository.api@default:default,com.pe-international.sample.repository.jpa.manual@default:default,com.pe-international.sample.repository.jpa.spring@default:default,com.pe-international.sample.ui.account.view@default:default,com.pe-international.sample.ui.customer.view@default:default,com.pe-international.sample.ui.main@default:default,com.pe-international.sample.ui.theme@default:false"/>
 </launchConfiguration>

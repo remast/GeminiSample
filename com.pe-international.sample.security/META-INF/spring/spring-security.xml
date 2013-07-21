@@ -15,17 +15,21 @@
   http://www.springframework.org/schema/security
   http://www.springframework.org/schema/security/spring-security-3.1.xsd">
 
-  <!-- HTTP basic authentication in Spring Security -->
+  <!-- 
+  Example for using Spring Profiles in Gemini Blueprint:
+   Profile "default" with authentication
+   Profile "development" without authentication
+   -->
   <beans:beans profile="default">
     <http>
-      <intercept-url pattern="/**" access="ADMIN" />
+      <intercept-url pattern="/**" access="ROLE_ADMIN" />
       <http-basic />
     </http>
 
     <authentication-manager>
       <authentication-provider>
         <user-service>
-          <user name="max" password="muster" authorities="ADMIN" />
+          <user name="max" password="muster" authorities="ROLE_ADMIN" />
         </user-service>
       </authentication-provider>
     </authentication-manager>
@@ -41,7 +45,7 @@
     <authentication-manager>
       <authentication-provider>
         <user-service>
-          <user name="max" password="muster" authorities="ADMIN" />
+          <user name="max" password="muster" authorities="ROLE_ADMIN" />
         </user-service>
       </authentication-provider>
     </authentication-manager>

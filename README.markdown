@@ -6,7 +6,8 @@ in OSGi with the Eclipse Gemini project.
 
 Overview
 ---------------------
-TODO
+* Spring Profiles with Gemini Blueprint
+* Spring Security with Gemini Blueprint 
 
 User Interface
 ---------------------
